@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="AdMeStore.Pages.CampaignManagementPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AdMeStore.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="CampaignManagementPage"
+    d:DesignHeight="720"
+    d:DesignWidth="1280"
+    mc:Ignorable="d">
+
+    <Grid>
+        <StackPanel Margin="20">
+            <TextBlock
+                Margin="0,0,0,20"
+                FontSize="24"
+                FontWeight="Bold"
+                Text="Управление рекламными кампаниями" />
+
+
+
+            <ListView
+                Name="CampaignsListView"
+                Height="400"
+                Margin="0,20,0,0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn
+                            Width="200"
+                            DisplayMemberBinding="{Binding Name_project}"
+                            Header="Название" />
+                        <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding Status}"
+                            Header="Статус" />
+                        <GridViewColumn
+                            Width="100"
+                            DisplayMemberBinding="{Binding Budget}"
+                            Header="Бюджет" />
+                        <GridViewColumn
+                            Width="120"
+                            DisplayMemberBinding="{Binding Start_date}"
+                            Header="Дата начала" />
+                        <GridViewColumn
+                            Width="120"
+                            DisplayMemberBinding="{Binding End_date}"
+                            Header="Дата окончания" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <StackPanel Orientation="Horizontal">
+
+
+                <Button
+                    Name="AddCampaignButton"
+                    Width="208"
+                    Click="AddCampaignButton_Click"
+                    Content="Добавить кампанию"
+                    Style="{StaticResource AuthButtonStyle}" />
+                <Button
+                    Name="EditCampaignButton"
+                    Width="208"
+                    Click="EditCampaignButton_Click"
+                    Content="Редактировать кампанию"
+                    Style="{StaticResource AuthButtonStyle}" />
+                <Button
+                    Name="DeleteCampaignButton"
+                    Width="208"
+                    Click="DeleteCampaignButton_Click"
+                    Content="Удалить кампанию"
+                    Style="{StaticResource AuthButtonStyle}" />
+                <Button
+                    Width="208"
+                    Click="GoBack"
+                    Content="Назад"
+                    Style="{StaticResource AuthButtonStyle}" />
+
+            </StackPanel>
+
+
+        </StackPanel>
+    </Grid>
+</Page>

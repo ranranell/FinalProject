@@ -1,0 +1,80 @@
+﻿<Page
+    x:Class="AdMeStore.Pages.AuthPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AdMeStore.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="AuthPage"
+    d:DesignHeight="720"
+    d:DesignWidth="1280"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <!-- Определение стилей -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#6200EE"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="5">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3700B3"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#03DAC5"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Margin" Value="0,10,0,10"/>
+            <Setter Property="Foreground" Value="#333333"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Margin" Value="0,10"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#6200EE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Cursor" Value="IBeam"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock FontSize="32" FontWeight="Bold" Text="Вход в систему" HorizontalAlignment="Center"/>
+            <TextBlock FontSize="18" Text="Введите свои данные:" HorizontalAlignment="Center" Margin="0,10,0,20"/>
+
+            <Grid Margin="0,10">
+                <TextBox x:Name="UsernameTextBox" />
+                <!--<TextBlock Text="Логин" Foreground="#A0A0A0" VerticalAlignment="Center" Margin="10,0,0,0" />-->
+            </Grid>
+
+            <Grid Margin="0,10">
+                <PasswordBox x:Name="PasswordBox" />
+                <!--<TextBlock Text="Пароль" Foreground="#A0A0A0" VerticalAlignment="Center" Margin="10,0,0,0" 
+                           Visibility="{Binding ElementName=PasswordBox, Path=IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>-->
+            </Grid>
+
+            <Button Content="Войти" Click="LoginButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
